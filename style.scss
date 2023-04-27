@@ -1,0 +1,173 @@
+:root {
+	--primary-color: #3686a0;
+    --nav-scroll-height: 70px;
+}
+
+body {
+	margin: 0;
+	overflow-x: hidden;
+	font-family: Verdana, Arial, Tahoma, Serif;
+}
+
+.nav-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    transition: all 350ms ease;
+
+    &.nav-scroll-down {
+        height: var(--nav-scroll-height);
+        transform: translateY(calc(var(--nav-scroll-height) * -1));
+    }
+
+    &.nav-scroll-up {
+        height: var(--nav-scroll-height);
+        transform: translateY(0);
+        box-shadow: rgba(0, 0, 0, 0.35) -10px 0px 30px -15px;
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 50px;
+        width: 100%;
+    }
+
+	.logo-container {
+		height: 42px;
+		width: 42px;
+		border-radius: 50%;
+		overflow: hidden;
+
+		img {
+			height: 100%;
+		}
+	}
+
+	.nav-div {
+		.menu-container {
+			width: 42px;
+		}
+
+		&.nav-sm {
+			display: block;
+		}
+
+		&.nav-lg {
+			display: none;
+		}
+
+		.navbar {
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				gap: 3rem;
+				flex-direction: column;
+                
+
+				li {
+                    text-align: center;
+					a {
+						padding: 10px;
+						text-decoration: none;
+						color: black;
+
+						&:hover {
+							color: var(--primary-color);
+						}
+					}
+				}
+			}
+		}
+
+		.nav-mobile {
+			margin: 0;
+			position: fixed;
+			inset: 0 0 0 30%;
+			transform: translateX(100%);
+			transition: all 350ms ease-out;
+			background-color: red;
+
+			&[data-visible='true'] {
+				transform: translateX(0%);
+			}
+			padding: 0 50px;
+			z-index: 999;
+			box-shadow: rgba(0, 0, 0, 0.35) -10px 0px 30px -15px;
+			background: white;
+
+            ul {
+                padding-top: 4rem;
+            }
+
+			.cross-container {
+				display: flex;
+				justify-content: flex-end;
+				height: 100px;
+				align-items: center;
+
+				div {
+					width: 42px;
+				}
+			}
+		}
+	}
+
+	.svg-btn {
+		width: 100%;
+		background: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+
+		svg {
+			color: var(--primary-color);
+		}
+	}
+}
+
+.blur {
+	filter: blur(5px);
+	transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+	pointer-events: none;
+	user-select: none;
+}
+
+@media screen and (min-width: 600px) {
+	.nav-header {
+		.nav-div {
+			&.nav-sm {
+				display: none;
+			}
+
+			&.nav-lg {
+				display: block;
+			}
+
+			.nav-desktop {
+				ul {
+					flex-direction: row;
+				}
+			}
+		}
+	}
+}
+
+/* Hiding class, making content visible only to screen readers but not visually */
+/* "sr" meaning "screen-reader" */
+.sr-only:not(:focus):not(:active) {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
