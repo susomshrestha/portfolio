@@ -12,83 +12,136 @@
 	</head>
 	<body>
 		<header class="nav-header">
-			<div class="nav-container">
-                <div class="logo-container">
-                    <img src="/images/logo.png" alt="logo" />
-                </div>
-    
-                <div class="nav-div nav-sm">
-                    <div class="menu-container">
-                        <button class="svg-btn" id="btn-ham" aria-controls="navigation">
-                            <span class="sr-only">Menu</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                <path
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 8h22M5 16h22M5 24h22" />
-                            </svg>
-                        </button>
-                    </div>
-    
-                    <div class="navbar nav-mobile" id="navigation" data-visible="false">
-                        <div class="cross-container">
-                            <div>
-                                <button class="svg-btn" id="btn-cross" aria-controls="navigation">
-                                    <span class="sr-only">Exit</span>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24">
-                                        <path
-                                            fill="currentColor"
-                                            d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <ul class="list">
-                            <li>
-                                <a href="#"> About </a>
-                            </li>
-                            <li>
-                                <a href="#"> Experience </a>
-                            </li>
-                            <li>
-                                <a href="#"> Work </a>
-                            </li>
-                            <li>
-                                <a href="#"> Contact </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-    
-                <div class="nav-div nav-lg">
-                    <div class="navbar nav-desktop">
-                        <ul>
-                            <li>
-                                <a href="#"> About </a>
-                            </li>
-                            <li>
-                                <a href="#"> Experience </a>
-                            </li>
-                            <li>
-                                <a href="#"> Work </a>
-                            </li>
-                            <li>
-                                <a href="#"> Contact </a>
-                            </li>
-                        </ul>
-    
-                    </div>
-                </div>
-            </div>
+			<div class="nav-container max-width">
+				<div class="logo-container">
+					<img src="/images/logo.png" alt="logo" />
+				</div>
+
+				<div class="nav-div nav-sm">
+					<div class="menu-container">
+						<button class="svg-btn" id="btn-ham" aria-controls="navigation">
+							<span class="sr-only">Menu</span>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+								<path
+									fill="none"
+									stroke="currentColor"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M5 8h22M5 16h22M5 24h22" />
+							</svg>
+						</button>
+					</div>
+
+					<div class="navbar nav-mobile" id="navigation" data-visible="false">
+						<div class="cross-container">
+							<div>
+								<button class="svg-btn" id="btn-cross" aria-controls="navigation">
+									<span class="sr-only">Exit</span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+										<path
+											fill="currentColor"
+											d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" />
+									</svg>
+								</button>
+							</div>
+						</div>
+						<ul class="list">
+							<li>
+								<a href="#"> About </a>
+							</li>
+							<li>
+								<a href="#"> Experience </a>
+							</li>
+							<li>
+								<a href="#"> Work </a>
+							</li>
+							<li>
+								<a href="#"> Contact </a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="nav-div nav-lg">
+					<div class="navbar nav-desktop">
+						<ul>
+							<li>
+								<a href="#"> About </a>
+							</li>
+							<li>
+								<a href="#"> Experience </a>
+							</li>
+							<li>
+								<a href="#"> Work </a>
+							</li>
+							<li>
+								<a href="#"> Contact </a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</header>
 
-		<main id="main">
-        </main>
+		<main id="main" class="main">
+			<section class="home-section">
+				<div class="home-container max-width">
+					<h1>Frontend Developer</h1>
+					<h3>Lorem Ipsum</h3>
+					<div class="profile-container">
+						<img src="/images/profile.png" />
+					</div>
+				</div>
+			</section>
+			<section class="about-section">
+				<div class="about-container">
+					<div class="about">
+						<h2><span> "Hello World" </span> I'm Susom.</h2>
+						<p>
+							I am a frontend developer based in Kathmandu, Nepal. I love to code and
+							build things that provide great user experience, and I love challenging
+							myself and solving problems in the process.
+						</p>
+						<p>
+							Since my journey as a developer, I have gathered around 3 years of
+							experience in building and maintainig web applications. My goal is to
+							create web applications that are not only beautiful but also functional
+							and user-friendly.
+						</p>
+						<p>
+							I believe that good design and development practices,
+							coupled with strong problem-solving skills, are key to achieving this
+							goal. I am always looking for new and exciting
+							opportunities to apply my skills.
+						</p>
+					</div>
+					<div class="tech">
+						<h2>Technologies I've worked with</h2>
+						<div class="skill-list">
+							<div class="skill">
+								Javascript
+							</div>
+							<div class="skill">
+								Angular
+							</div>
+							<div class="skill">
+								Ionic
+							</div>
+							<div class="skill">
+								React Native
+							</div>
+							<div class="skill">
+								Swift
+							</div>
+							<div class="skill">
+								Node
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
 
 		<footer></footer>
 	</body>

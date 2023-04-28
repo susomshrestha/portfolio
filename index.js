@@ -17,7 +17,7 @@ crossBtn.addEventListener('click', () => {
 let prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
 	let currentScrollPos = window.pageYOffset;
-	if (currentScrollPos < 80) {
+	if (currentScrollPos < 30) {
 		header.classList.remove('nav-scroll-up');
 	} else {
 		if (prevScrollpos > currentScrollPos) {
