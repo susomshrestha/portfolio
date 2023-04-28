@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --primary-color: #3686a0;
   --nav-scroll-height: 70px;
@@ -9,6 +10,11 @@ body {
   font-family: Verdana, Arial, Tahoma, Serif;
 }
 
+.max-width {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 .nav-header {
   position: fixed;
   top: 0;
@@ -18,6 +24,7 @@ body {
   align-items: center;
   height: 100px;
   transition: all 350ms ease;
+  background: white;
 }
 .nav-header.nav-scroll-down {
   height: var(--nav-scroll-height);
@@ -130,6 +137,77 @@ body {
     flex-direction: row;
   }
 }
+.main {
+  padding-top: 100px;
+}
+.main .home-section .home-container {
+  padding: 3rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.main .home-section .home-container .profile-container {
+  margin-top: 3rem;
+  height: 18rem;
+  width: 18rem;
+  border-radius: 50%;
+  background: var(--primary-color);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main .home-section .home-container .profile-container img {
+  height: 100%;
+}
+.main .about-section {
+  background: var(--primary-color);
+}
+.main .about-section .about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.main .about-section .about-container .about p {
+  line-height: 1.5;
+}
+.main .about-section .about-container .tech {
+  margin-top: 2rem;
+}
+.main .about-section .about-container .tech .skill-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 250px));
+}
+.main .about-section .about-container .tech .skill-list .skill {
+  position: relative;
+  padding: 0.875rem;
+}
+.main .about-section .about-container .tech .skill-list .skill::before {
+  content: "▹";
+  position: absolute;
+  left: 0px;
+  color: white;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+@media screen and (min-width: 600px) {
+  .main .about-section .about-container {
+    flex-direction: row;
+  }
+  .main .about-section .about-container .tech {
+    margin-top: 0;
+    margin-left: 3rem;
+    padding-left: 3rem;
+  }
+  .main .about-section .about-container .tech .skill-list {
+    grid-template-columns: repeat(1, minmax(200px, 250px));
+  }
+}
+
 /* Hiding class, making content visible only to screen readers but not visually */
 /* "sr" meaning "screen-reader" */
 .sr-only:not(:focus):not(:active) {
