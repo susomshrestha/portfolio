@@ -1,5 +1,6 @@
 :root {
 	--primary-color: #3686a0;
+	--primary-color-bg: #3686a0cc;
 	--nav-scroll-height: 70px;
 }
 
@@ -175,6 +176,7 @@ body {
 			align-items: center;
 			justify-content: center;
 			flex-direction: column;
+			text-align: center;
 
 			.profile-container {
 				margin-top: 3rem;
@@ -216,7 +218,7 @@ body {
 
 				.skill-list {
 					display: grid;
-					grid-template-columns: repeat(2, minmax(200px, 250px));
+					grid-template-columns: repeat(2, minmax(100px, 150px));
 
 					.skill {
 						position: relative;
@@ -236,6 +238,18 @@ body {
 		}
 	}
 
+	@media screen and (min-width: 480px) {
+		.about-section {
+			.about-container {
+				.tech {
+					.skill-list {
+						grid-template-columns: repeat(2, minmax(150px, 200px));
+					}
+				}
+			}
+		}
+	}
+
 	@media screen and (min-width: 600px) {
 		.about-section {
 			.about-container {
@@ -249,6 +263,101 @@ body {
 					.skill-list {
 						grid-template-columns: repeat(1, minmax(200px, 250px));
 					}
+				}
+			}
+		}
+	}
+
+	.work-section {
+		.work-container {
+			padding: 4rem;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			max-width: 700px;
+
+			.tab {
+				margin-bottom: 1.5rem;
+				display: flex;
+				flex-direction: row;
+
+				.tablinks {
+					padding: 1rem 1rem 1rem 1.5rem;
+					border: none;
+					border-left: 2px solid grey;
+					color: var(--primary-color);
+					background: none;
+					min-width: 8rem;
+					text-align: left;
+				}
+
+				.active {
+					background-color: var(--primary-color-bg);
+					color: white;
+					font-weight: bold;
+					border-left-color: var(--primary-color);
+				}
+			}
+
+			.tab-view {
+				.tab-content {
+					h3 {
+						margin: 0;
+						font-weight: 600;
+
+						span {
+							color: var(--primary-color);
+						}
+					}
+
+					.time {
+						margin-top: 0.2rem;
+					}
+
+					.experience {
+						line-height: 1.5;
+
+						ul {
+							margin: 0;
+							padding-left: 0;
+							list-style: none;
+
+							li {
+								position: relative;
+								padding-left: 2rem;
+								margin-bottom: 0.75rem;
+
+								&::before {
+									content: '▹';
+									position: absolute;
+									left: 0px;
+									line-height: 1.5;
+								}
+							}
+						}
+					}
+				}
+
+				[data-tab-content] {
+					display: none;
+				}
+
+				.active[data-tab-content] {
+					display: block;
+				}
+			}
+		}
+	}
+
+	@media screen and (min-width: 600px) {
+		.work-section {
+			.work-container {
+				flex-direction: row;
+
+				.tab {
+					flex-direction: column;
+					margin-right: 1.5rem;
+					margin-bottom: 0;
 				}
 			}
 		}
