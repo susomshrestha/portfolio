@@ -4,6 +4,23 @@ const crossBtn = document.querySelector('#btn-cross');
 const main = document.querySelector('#main');
 const header = document.querySelector('.nav-header');
 
+const tabs = document.querySelectorAll('[data-tab-target]');
+const tabContents = document.querySelectorAll('[data-tab-content]');
+
+tabs.forEach((tab) => {
+	tab.addEventListener('click', () => {
+		tabs.forEach(tab => {
+			tab.classList.remove('active');
+		})
+		tab.classList.add('active');
+		const target = document.querySelector(tab.dataset.tabTarget);
+		tabContents.forEach((content) => {
+			content.classList.remove('active');
+		});
+		target.classList.add('active');
+	});
+});
+
 navButton.addEventListener('click', () => {
 	navigation.setAttribute('data-visible', true);
 	main.classList.add('blur');
@@ -14,6 +31,7 @@ crossBtn.addEventListener('click', () => {
 	main.classList.remove('blur');
 });
 
+// show or remove navbar on scroll up and down
 let prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
 	let currentScrollPos = window.pageYOffset;
