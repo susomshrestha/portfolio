@@ -34,19 +34,21 @@ crossBtn.addEventListener('click', () => {
 // show or remove navbar on scroll up and down
 let prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
-	let currentScrollPos = window.pageYOffset;
-	if (currentScrollPos < 30) {
-		header.classList.remove('nav-scroll-up');
-	} else {
-		if (prevScrollpos > currentScrollPos) {
-			header.classList.add('nav-scroll-up');
-			header.classList.remove('nav-scroll-down');
-		} else {
-			header.classList.add('nav-scroll-down');
+	if (navigation.getAttribute('data-visible') === 'false') {
+		let currentScrollPos = window.pageYOffset;
+		if (currentScrollPos < 30) {
 			header.classList.remove('nav-scroll-up');
+		} else {
+			if (prevScrollpos > currentScrollPos) {
+				header.classList.add('nav-scroll-up');
+				header.classList.remove('nav-scroll-down');
+			} else {
+				header.classList.add('nav-scroll-down');
+				header.classList.remove('nav-scroll-up');
+			}
 		}
-	}
-	prevScrollpos = currentScrollPos;
+		prevScrollpos = currentScrollPos;
+	} else {}
 };
 
 const projects = [
@@ -67,7 +69,7 @@ const projects = [
 ];
 
 function populateProjects() {
-	const projContainer = document.querySelector('.project-container');
+	const projectBody = document.querySelector('.project-body');
 	let html = '';
 	projects.forEach((project) => {
 		html += `
@@ -141,7 +143,7 @@ function populateProjects() {
 		`;
 	});
 
-	projContainer.innerHTML = html;
+	projectBody.innerHTML = html;
 }
 
 populateProjects();

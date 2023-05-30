@@ -14,6 +14,7 @@ body {
 .max-width {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 10%;
 }
 
 .nav-header {
@@ -26,6 +27,7 @@ body {
   height: 100px;
   transition: all 350ms ease;
   background: white;
+  z-index: 999;
 }
 .nav-header.nav-scroll-down {
   height: var(--nav-scroll-height);
@@ -87,9 +89,9 @@ body {
   transform: translateX(100%);
   transition: all 350ms ease-out;
   padding: 0 50px;
-  z-index: 999;
   box-shadow: rgba(0, 0, 0, 0.35) -10px 0px 30px -15px;
   background: white;
+  height: 100vh;
 }
 .nav-header .nav-div .nav-mobile[data-visible=true] {
   transform: translateX(0%);
@@ -140,92 +142,78 @@ body {
 .main {
   padding-top: 100px;
 }
-.main .home-section .home-container {
-  padding: 8rem 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
+.main .home-section .home-container h1 {
+  font-size: 1.75rem;
+  color: var(--primary-color);
+  font-weight: 500;
 }
-.main .home-section .home-container .profile-container {
-  margin-top: 3rem;
-  height: 18rem;
-  width: 18rem;
-  border-radius: 50%;
-  background: var(--primary-color);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.main .home-section .home-container .profile-container img {
-  height: 100%;
+@media screen and (min-width: 600px) {
+  .main .home-section .home-container h1 {
+    font-size: 3rem;
+  }
 }
 .main .about-section {
   background: var(--primary-color);
 }
 .main .about-section .about-container {
-  max-width: 800px;
   margin: 0 auto;
-  padding: 8rem 4rem;
+}
+.main .about-section .about-container .section-header {
+  color: white;
+}
+.main .about-section .about-container .about-body {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   color: white;
+  align-items: center;
 }
-.main .about-section .about-container .about p {
+.main .about-section .about-container .about-body .profile-container {
+  height: 18rem;
+  width: 18rem;
+  border-radius: 50%;
+  background: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main .about-section .about-container .about-body .profile-container img {
+  height: 100%;
+}
+.main .about-section .about-container .about-body .about {
+  padding-top: 2rem;
+}
+.main .about-section .about-container .about-body .about div {
   line-height: 1.5;
-}
-.main .about-section .about-container .tech {
-  margin-top: 2rem;
-}
-.main .about-section .about-container .tech .skill-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(100px, 150px));
-}
-.main .about-section .about-container .tech .skill-list .skill {
-  position: relative;
-  padding: 0.875rem;
-}
-.main .about-section .about-container .tech .skill-list .skill::before {
-  content: "▹";
-  position: absolute;
-  left: 0px;
-  color: white;
-  font-size: 0.75rem;
-  line-height: 1.5;
-}
-@media screen and (min-width: 480px) {
-  .main .about-section .about-container .tech .skill-list {
-    grid-template-columns: repeat(2, minmax(150px, 200px));
-  }
 }
 @media screen and (min-width: 600px) {
-  .main .about-section .about-container {
+  .main .about-section .about-container .about-body {
     flex-direction: row;
+    align-items: flex-start;
   }
-  .main .about-section .about-container .tech {
-    margin-top: 0;
-    margin-left: 3rem;
-    padding-left: 3rem;
+  .main .about-section .about-container .about-body .profile-container {
+    flex: 1;
   }
-  .main .about-section .about-container .tech .skill-list {
-    grid-template-columns: repeat(1, minmax(200px, 250px));
+  .main .about-section .about-container .about-body .about {
+    flex: 2;
+    padding-right: 2rem;
+    padding-top: 0;
   }
 }
-.main .work-section .work-container {
-  padding: 8rem 4rem;
+.main .work-section .work-container .work-header {
+  color: var(--primary-color);
+}
+.main .work-section .work-container .work-body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  max-width: 700px;
 }
-.main .work-section .work-container .tab {
+.main .work-section .work-container .work-body .tab {
   margin-bottom: 1.5rem;
   display: flex;
   flex-direction: row;
 }
-.main .work-section .work-container .tab .tablinks {
+.main .work-section .work-container .work-body .tab .tablinks {
   padding: 1rem 1rem 1rem 1.5rem;
   border: none;
   border-left: 2px solid grey;
@@ -234,55 +222,55 @@ body {
   min-width: 10rem;
   text-align: left;
 }
-.main .work-section .work-container .tab .active {
+.main .work-section .work-container .work-body .tab .active {
   background-color: var(--primary-color-bg);
   color: white;
   font-weight: bold;
   border-left-color: var(--primary-color);
 }
-.main .work-section .work-container .tab-view {
+.main .work-section .work-container .work-body .tab-view {
   min-height: 400px;
 }
-.main .work-section .work-container .tab-view .tab-content h3 {
+.main .work-section .work-container .work-body .tab-view .tab-content h3 {
   margin: 0;
   font-weight: 600;
 }
-.main .work-section .work-container .tab-view .tab-content h3 span {
+.main .work-section .work-container .work-body .tab-view .tab-content h3 span {
   color: var(--primary-color);
 }
-.main .work-section .work-container .tab-view .tab-content .time {
+.main .work-section .work-container .work-body .tab-view .tab-content .time {
   margin-top: 0.2rem;
 }
-.main .work-section .work-container .tab-view .tab-content .experience {
+.main .work-section .work-container .work-body .tab-view .tab-content .experience {
   line-height: 1.5;
 }
-.main .work-section .work-container .tab-view .tab-content .experience ul {
+.main .work-section .work-container .work-body .tab-view .tab-content .experience ul {
   margin: 0;
   padding-left: 0;
   list-style: none;
 }
-.main .work-section .work-container .tab-view .tab-content .experience ul li {
+.main .work-section .work-container .work-body .tab-view .tab-content .experience ul li {
   position: relative;
   padding-left: 2rem;
   margin-bottom: 0.75rem;
 }
-.main .work-section .work-container .tab-view .tab-content .experience ul li::before {
+.main .work-section .work-container .work-body .tab-view .tab-content .experience ul li::before {
   content: "▹";
   position: absolute;
   left: 0px;
   line-height: 1.5;
 }
-.main .work-section .work-container .tab-view [data-tab-content] {
+.main .work-section .work-container .work-body .tab-view [data-tab-content] {
   display: none;
 }
-.main .work-section .work-container .tab-view .active[data-tab-content] {
+.main .work-section .work-container .work-body .tab-view .active[data-tab-content] {
   display: block;
 }
 @media screen and (min-width: 600px) {
-  .main .work-section .work-container {
+  .main .work-section .work-container .work-body {
     flex-direction: row;
   }
-  .main .work-section .work-container .tab {
+  .main .work-section .work-container .work-body .tab {
     flex-direction: column;
     margin-right: 4rem;
     margin-bottom: 0;
@@ -291,25 +279,23 @@ body {
 .main .project-section {
   background: var(--primary-color);
 }
-.main .project-section .project-container {
+.main .project-section .project-container .project-body {
   display: grid;
   grid-template-columns: repeat(1, minmax(250px, 300px));
-  padding: 8rem 4rem;
   gap: 1rem;
   grid-auto-rows: 1fr;
-  justify-content: center;
 }
 @media screen and (min-width: 600px) {
-  .main .project-section .project-container {
+  .main .project-section .project-container .project-body {
     grid-template-columns: repeat(2, minmax(250px, 300px));
   }
 }
 @media screen and (min-width: 900px) {
-  .main .project-section .project-container {
+  .main .project-section .project-container .project-body {
     grid-template-columns: repeat(3, minmax(250px, 300px));
   }
 }
-.main .project-section .project-container .proj {
+.main .project-section .project-container .project-body .proj {
   position: relative;
   padding: 1.5rem;
   background: white;
@@ -320,35 +306,35 @@ body {
   min-height: 250px;
   cursor: pointer;
 }
-.main .project-section .project-container .proj .proj-icon {
+.main .project-section .project-container .project-body .proj .proj-icon {
   color: var(--primary-color);
 }
-.main .project-section .project-container .proj .proj-head {
+.main .project-section .project-container .project-body .proj .proj-head {
   margin-top: 1rem;
   font-weight: bold;
   font-size: 1.25rem;
 }
-.main .project-section .project-container .proj .proj-desc {
+.main .project-section .project-container .project-body .proj .proj-desc {
   margin-top: 0.75rem;
 }
-.main .project-section .project-container .proj .proj-tech {
+.main .project-section .project-container .project-body .proj .proj-tech {
   margin-top: 1rem;
   font-size: 0.75rem;
   font-style: italic;
   font-weight: 500;
 }
-.main .project-section .project-container .proj .links {
+.main .project-section .project-container .project-body .proj .links {
   display: flex;
   gap: 1rem;
 }
-.main .project-section .project-container .proj .links a {
+.main .project-section .project-container .project-body .proj .links a {
   text-decoration: none;
   color: black;
 }
-.main .project-section .project-container .proj .links a:hover {
+.main .project-section .project-container .project-body .proj .links a:hover {
   color: var(--primary-color);
 }
-.main .project-section .project-container .proj:hover .proj-head {
+.main .project-section .project-container .project-body .proj:hover .proj-head {
   color: var(--primary-color);
 }
 
