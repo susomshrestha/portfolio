@@ -99,15 +99,14 @@ body {
 			inset: 0 0 0 30%;
 			transform: translateX(100%);
 			transition: all 350ms ease-out;
-			background-color: red;
-
-			&[data-visible='true'] {
-				transform: translateX(0%);
-			}
 			padding: 0 50px;
 			z-index: 999;
 			box-shadow: rgba(0, 0, 0, 0.35) -10px 0px 30px -15px;
 			background: white;
+
+			&[data-visible='true'] {
+				transform: translateX(0%);
+			}
 
 			ul {
 				padding-top: 4rem;
@@ -171,7 +170,7 @@ body {
 
 	.home-section {
 		.home-container {
-			padding: 3rem 3rem;
+			padding: 8rem 4rem;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -202,7 +201,7 @@ body {
 		.about-container {
 			max-width: 800px;
 			margin: 0 auto;
-			padding: 4rem;
+			padding: 8rem 4rem;
 			display: flex;
 			flex-direction: column;
 			color: white;
@@ -270,7 +269,7 @@ body {
 
 	.work-section {
 		.work-container {
-			padding: 4rem;
+			padding: 8rem 4rem;
 			display: flex;
 			justify-content: center;
 			flex-direction: column;
@@ -287,7 +286,7 @@ body {
 					border-left: 2px solid grey;
 					color: var(--primary-color);
 					background: none;
-					min-width: 8rem;
+					min-width: 10rem;
 					text-align: left;
 				}
 
@@ -300,6 +299,8 @@ body {
 			}
 
 			.tab-view {
+				min-height: 400px;
+
 				.tab-content {
 					h3 {
 						margin: 0;
@@ -356,8 +357,82 @@ body {
 
 				.tab {
 					flex-direction: column;
-					margin-right: 1.5rem;
+					margin-right: 4rem;
 					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	.project-section {
+		background: var(--primary-color);
+
+		.project-container {
+			display: grid;
+			grid-template-columns: repeat(1, minmax(250px, 300px));
+			padding: 8rem 4rem;
+			gap: 1rem;
+			grid-auto-rows: 1fr;
+			justify-content: center;
+
+			@media screen and (min-width: 600px) {
+				grid-template-columns: repeat(2, minmax(250px, 300px));
+			}
+
+			@media screen and (min-width: 900px) {
+				grid-template-columns: repeat(3, minmax(250px, 300px));
+			}
+
+			.proj {
+				position: relative;
+				padding: 1.5rem;
+				background: white;
+				border-radius: 0.75rem;
+				display: flex;
+				justify-content: space-between;
+				flex-direction: column;
+				min-height: 250px;
+				cursor: pointer;
+
+				.proj-icon {
+					color: var(--primary-color);
+				}
+
+				.proj-head {
+					margin-top: 1rem;
+					font-weight: bold;
+					font-size: 1.25rem;
+				}
+
+				.proj-desc {
+					margin-top: 0.75rem;
+				}
+
+				.proj-tech {
+					margin-top: 1rem;
+					font-size: 0.75rem;
+					font-style: italic;
+					font-weight: 500;
+				}
+
+				.links {
+					display: flex;
+					gap: 1rem;
+
+					a {
+						text-decoration: none;
+						color: black;
+					}
+
+					a:hover {
+						color: var(--primary-color);
+					}
+				}
+
+				&:hover {
+					.proj-head {
+						color: var(--primary-color);
+					}
 				}
 			}
 		}
