@@ -48,7 +48,8 @@ window.onscroll = function () {
 			}
 		}
 		prevScrollpos = currentScrollPos;
-	} else {}
+	} else {
+	}
 };
 
 const projects = [
@@ -147,3 +148,90 @@ function populateProjects() {
 }
 
 populateProjects();
+
+const skills = [
+	{
+		name: 'HTML',
+		weight: 5,
+	},
+	{
+		name: 'Angular',
+		weight: 8,
+	},
+	{
+		name: 'Javascript',
+		weight: 7,
+	},
+	{
+		name: 'Ionic',
+		weight: 5,
+	},
+	{
+		name: 'Node',
+		weight: 4,
+	},
+	{
+		name: 'CSS',
+		weight: 6,
+	},
+	{
+		name: 'React Native',
+		weight: 3,
+	},
+	{
+		name: 'iOS',
+		weight: 2,
+	},
+	{
+		name: 'Android',
+		weight: 1,
+	},
+	{
+		name: 'Git',
+		weight: 5,
+	},
+	{
+		name: 'Firebase',
+		weight: 6,
+	},
+	{
+		name: 'SQL',
+		weight: 4,
+	},
+];
+
+function populateSkills() {
+	const projectBody = document.querySelector('.skills-body');
+	let html = '';
+	skills.forEach((skill, index) => {
+		const element = document.createElement('div');
+		const span = document.createElement('span');
+		span.innerHTML = skill.name;
+		element.appendChild(span);
+		element.classList.add('skill', skill.name.replace(' ', '').toLowerCase());
+		element.style.fontSize = (skill.weight * 0.25 + 0.5) / 10 + 'em';
+		// element.style.fontSize = (16) + 'px';
+		if (index % 3 === 0) {
+			element.style.writingMode = 'vertical-lr';
+		}
+		element.style.opacity = (15 - (9 - skill.weight)) / 15;
+
+		projectBody.appendChild(element);
+	});
+}
+
+function getColor(weight) {
+	let color = '#046e8f';
+	if (weight % 4) {
+		color = `#183446`;
+	} else if (weight % 3) {
+		color = `#0090c1`;
+	} else if (weight % 2) {
+		color = `#38aecc`;
+	} else {
+		color = `#022f40`;
+	}
+	return color;
+}
+
+populateSkills();

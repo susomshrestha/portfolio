@@ -274,7 +274,7 @@ body {
 						border-left: 2px solid grey;
 						color: var(--primary-color);
 						background: none;
-						min-width: 10rem;
+						min-width: 8rem;
 						text-align: left;
 					}
 
@@ -425,6 +425,106 @@ body {
 							color: var(--primary-color);
 						}
 					}
+				}
+			}
+		}
+	}
+
+	.skills-section {
+		.skills-container {
+			.skills-body {
+				display: grid;
+				text-align: center;
+				justify-content: center;
+				align-items: center;
+				gap: 0.5rem;
+				font-size: 5rem;
+				grid-template:
+					' node angular ios html'
+					' ionic angular . css'
+					'sql javascript git css'
+					'firebase reactnative git css'
+					'. . android .';
+
+				.html {
+					grid-area: html;
+				}
+				.javascript {
+					grid-area: javascript;
+				}
+				.angular {
+					grid-area: angular;
+				}
+				.ionic {
+					grid-area: ionic;
+				}
+				.node {
+					grid-area: node;
+				}
+				.css {
+					grid-area: css;
+				}
+				.reactnative {
+					grid-area: reactnative;
+				}
+				.ios {
+					grid-area: ios;
+				}
+				.android {
+					grid-area: android;
+				}
+				.git {
+					grid-area: git;
+				}
+				.firebase {
+					grid-area: firebase;
+				}
+				.sql {
+					grid-area: sql;
+				}
+
+				.skill span {
+					cursor: pointer;
+					text-shadow: 3px 5px 8px rgba(1, 1, 1, 0.3);
+					color: var(--primary-color);
+				}
+
+				.skill span {
+					padding: 0.5rem;
+					background: linear-gradient(#1095c1 0 0) var(--p, 0) / var(--p, 0) no-repeat;
+					transition: 0.4s, background-position 0s;
+				}
+
+				.skill span:hover {
+					--p: 100%;
+					color: white;
+				}
+			}
+
+			@media screen and (min-width: 480px) {
+				.skills-body {
+					font-size: 8rem;
+					gap: 0.75rem;
+				}
+			}
+
+			@media screen and (min-width: 600px) {
+				.skills-body {
+					font-size: 9rem;
+					gap: 1rem;
+					grid-template:
+						'node node . angular ios html .'
+						'firebase reactnative ionic angular . css .'
+						'. reactnative ionic javascript git css .'
+						'. . ionic sql git css .'
+						'. . ionic . android . .';
+				}
+			}
+
+			@media screen and (min-width: 768px) {
+				.skills-body {
+					font-size: 10rem;
+					gap: 1.5rem;
 				}
 			}
 		}
