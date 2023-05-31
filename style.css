@@ -416,6 +416,92 @@ body {
   }
 }
 
+.footer {
+  background-color: var(--primary-color);
+}
+.footer .footer-container {
+  padding: 5% 10%;
+}
+.footer .footer-container .footer-header {
+  color: white;
+}
+.footer .footer-container .footer-body {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 600px) {
+  .footer .footer-container .footer-body {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer .footer-container .footer-body .form {
+    margin-right: 4rem;
+  }
+  .footer .footer-container .footer-body .links {
+    margin-top: 0;
+  }
+}
+.footer .footer-container .footer-body .form {
+  flex: 2;
+  padding-right: 0;
+  color: white;
+}
+.footer .footer-container .footer-body .form input,
+.footer .footer-container .footer-body .form textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.footer .footer-container .footer-body .form input:focus,
+.footer .footer-container .footer-body .form textarea:focus {
+  outline-color: #a1eacd;
+}
+.footer .footer-container .footer-body .form button {
+  background-color: white;
+  padding: 1rem 3rem;
+  margin: 0.75rem 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 300ms ease-out;
+}
+.footer .footer-container .footer-body .form button:hover {
+  background: #f48480;
+  color: white;
+}
+.footer .footer-container .footer-body .links {
+  flex: 1;
+  color: white;
+  margin-top: 2rem;
+  text-align: center;
+}
+.footer .footer-container .footer-body .links .icons {
+  margin-top: 1rem;
+}
+.footer .footer-container .footer-body .links .icons a {
+  color: white;
+  text-decoration: none;
+}
+.footer .footer-container .footer-body .links .icons a:hover {
+  opacity: 0.8;
+}
+.footer .copyright {
+  border-top: 1px solid white;
+}
+.footer .copyright .max-width {
+  max-width: 1280px;
+  padding: 1%;
+  text-align: center;
+  color: white;
+}
+
 /* Hiding class, making content visible only to screen readers but not visually */
 /* "sr" meaning "screen-reader" */
 .sr-only:not(:focus):not(:active) {
