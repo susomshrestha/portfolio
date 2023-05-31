@@ -210,7 +210,6 @@ function populateSkills() {
 		element.appendChild(span);
 		element.classList.add('skill', skill.name.replace(' ', '').toLowerCase());
 		element.style.fontSize = (skill.weight * 0.25 + 0.5) / 10 + 'em';
-		// element.style.fontSize = (16) + 'px';
 		if (index % 3 === 0) {
 			element.style.writingMode = 'vertical-lr';
 		}
@@ -218,20 +217,6 @@ function populateSkills() {
 
 		projectBody.appendChild(element);
 	});
-}
-
-function getColor(weight) {
-	let color = '#046e8f';
-	if (weight % 4) {
-		color = `#183446`;
-	} else if (weight % 3) {
-		color = `#0090c1`;
-	} else if (weight % 2) {
-		color = `#38aecc`;
-	} else {
-		color = `#022f40`;
-	}
-	return color;
 }
 
 populateSkills();
