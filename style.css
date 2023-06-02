@@ -74,12 +74,13 @@ body {
 .nav-header .nav-div .navbar ul li {
   text-align: center;
 }
-.nav-header .nav-div .navbar ul li a {
+.nav-header .nav-div .navbar ul li span {
+  cursor: pointer;
   padding: 10px;
   text-decoration: none;
   color: black;
 }
-.nav-header .nav-div .navbar ul li a:hover {
+.nav-header .nav-div .navbar ul li span:hover {
   color: var(--primary-color);
 }
 .nav-header .nav-div .nav-mobile {
