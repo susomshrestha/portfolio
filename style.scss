@@ -82,7 +82,8 @@ body {
 
 				li {
 					text-align: center;
-					a {
+					span {
+						cursor: pointer;
 						padding: 10px;
 						text-decoration: none;
 						color: black;

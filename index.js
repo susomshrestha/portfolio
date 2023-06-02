@@ -222,7 +222,26 @@ function populateSkills() {
 populateSkills();
 
 window.onbeforeunload = () => {
-	for(const form of document.getElementsByTagName('form')) {
-	  form.reset();
+	for (const form of document.getElementsByTagName('form')) {
+		form.reset();
 	}
-  }
+};
+
+function scrollTo(e, target) {
+	console.log(target);
+	const elmntToView = document.getElementById(target);
+	console.log(elmntToView);
+	elmntToView.scrollIntoView({ behavior: 'smooth' });
+}
+
+const elements = document.getElementsByClassName('scroll');
+Array.from(elements).forEach((el) => {
+	const target = el.getAttribute('data-scroll');
+	el.addEventListener('click', () => {
+		document.querySelector(`#${target}`).scrollIntoView({
+			behavior: 'smooth',
+		});
+		navigation.setAttribute('data-visible', false);
+		main.classList.remove('blur');
+	});
+});
