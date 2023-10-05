@@ -384,10 +384,11 @@ body {
 					justify-content: space-between;
 					flex-direction: column;
 					min-height: 250px;
-					cursor: pointer;
 
-					.proj-icon {
-						color: var(--primary-color);
+					&:hover {
+						.proj-icon {
+							color: var(--primary-color);
+						}
 					}
 
 					.proj-head {

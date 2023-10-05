@@ -56,7 +56,7 @@ const projects = [
 	{
 		title: 'Wordle Clone',
 		description: 'A simple wordle clone in javascript.',
-		link: 'https://susomshrestha.github.io/wordle-clone/public/index.html',
+		link: 'https://susomshrestha.github.io/wordle-clone/',
 		github: 'https://github.com/susomshrestha/wordle-clone',
 		technologies: 'HTML, SCSS, Javascript',
 	},
@@ -66,6 +66,13 @@ const projects = [
 		link: '',
 		github: 'https://github.com/susomshrestha/weather',
 		technologies: 'iOS Storyboard, Swift',
+	},
+	{
+		title: 'Word Tracker App',
+		description: 'A simple app to track your words and test your knoweledge.',
+		link: '',
+		github: 'https://github.com/Yadab-Neupane/Word-Tracker',
+		technologies: 'React Native, Firebase',
 	},
 ];
 
