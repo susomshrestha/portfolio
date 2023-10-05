@@ -305,9 +305,8 @@ body {
   justify-content: space-between;
   flex-direction: column;
   min-height: 250px;
-  cursor: pointer;
 }
-.main .project-section .project-container .project-body .proj .proj-icon {
+.main .project-section .project-container .project-body .proj:hover .proj-icon {
   color: var(--primary-color);
 }
 .main .project-section .project-container .project-body .proj .proj-head {
