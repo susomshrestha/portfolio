@@ -10,7 +10,6 @@ export default {
 				'text-primary': 'rgba(var(--text-primary))',
 				'text-secondary': 'rgba(var(--text-secondary))',
 				'accent-primary': 'rgba(var(--accent-primary))',
-				'accent-primary-hover': 'rgba(var(--accent-primary-hover))',
 				'text-on-accent': 'rgba(var(--text-on-accent))',
 			},
 		},
