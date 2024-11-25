@@ -1,0 +1,57 @@
+---
+const experiences = [
+	{
+		logo: 'https://sonat.com/wp-content/uploads/2022/01/favicon-96x96-1.webp',
+		period: 'Jul 2024 · Present',
+		title: 'Front-end Engineer Intern',
+		subTitle: 'Sonat',
+		description:
+			'Contribute to software development by identifying and resolving bugs, researching innovative solutions, and implementing new features to enhance functionality and user experience.',
+	},
+	{
+		logo: 'https://framerusercontent.com/images/dM8x8m8hYj4oSJficiz9ljlhi0.png',
+		period: 'Mar 2024 · Present',
+		title: 'AI Data Trainer',
+		subTitle: 'Outlier',
+		description:
+			'Facilitated AI learning by simplifying complex concepts, training models to generate efficient solutions, and ensuring accuracy and quality through meticulous evaluation and testing.',
+	},
+	{
+		logo: '/images/seva_logo.jpeg',
+		period: 'Mar 2022 · Jul 2022',
+		title: 'Software Engineer',
+		subTitle: 'Seva Development',
+		description:
+			'Led the implementation of key features and resolved complex bugs to deliver high-quality web and mobile applications while collaborating seamlessly with cross-functional teams.',
+	},
+	{
+		logo: 'https://bajratechnologies.com/web/image/website/1/logo/Bajra%20Technologies?unique=6fe09bd',
+		period: 'Nov 2018 · Jul 2021',
+		title: 'Software Engineer',
+		subTitle: 'Bajra Technologies',
+		description:
+			'Successfully led a team of developers, fostering innovation and collaboration to deliver high-quality applications and solutions.',
+	},
+];
+---
+
+<div class="max-w-screen-xl mx-auto mt-10">
+	<div class="p-12">
+		<h2 class="text-2xl font-bold text-center tracking-tight text-text-primary mb-8">Experience</h2>
+		{
+			experiences.map((exp) => (
+				<div class="max-w-[80%] mx-auto pb-10 border-l border-border last:border-l-0">
+					<div class="relative flex flex-col justify-start pl-20">
+						<div class="absolute top-0 left-0 z-40 flex items-center justify-center -translate-x-1/2 bg-background border rounded-full w-14 h-14 border-border">
+							<img src={exp.logo} alt="" class="w-8 h-8" />
+						</div>
+						<p class="text-xs uppercase text-text-secondary">{exp.period}</p>
+						<h3 class="my-1 text-lg font-bold text-text-primary">{exp.title}</h3>
+						<p class="mb-1 text-sm font-medium text-text-primary">{exp.subTitle}</p>
+						<p class="text-sm font-light text-text-secondary">{exp.description}</p>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</div>
