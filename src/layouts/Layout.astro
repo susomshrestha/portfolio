@@ -1,4 +1,5 @@
 ---
+import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
 
 interface Props {
@@ -26,6 +27,7 @@ const { title, image = '/images/logo.png' } = Astro.props;
 	<body class="min-h-screen bg-background">
 		<Navbar />
 		<slot />
+		<Footer />
 	</body>
 </html>
 
