@@ -1,0 +1,96 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import angularIcon from './../icons/angular.svg';
+import dotnetIcon from './../icons/dotnet.svg';
+import gitIcon from './../icons/git.svg';
+import jsIcon from './../icons/js.svg';
+import nodeIcon from './../icons/node.svg';
+import reactIcon from './../icons/react.svg';
+import sqlIcon from './../icons/sql.svg';
+import typescriptIcon from './../icons/typescript.svg';
+import { Image } from 'astro:assets';
+
+const skills = [
+	{
+		logo: dotnetIcon,
+		title: '.Net',
+	},
+	{
+		logo: angularIcon,
+		title: 'Angular',
+	},
+	{
+		logo: gitIcon,
+		title: 'Git',
+	},
+
+	{
+		logo: jsIcon,
+		title: 'Javascript',
+	},
+	{
+		logo: nodeIcon,
+		title: 'Node',
+	},
+	{
+		logo: reactIcon,
+		title: 'React',
+	},
+	{
+		logo: sqlIcon,
+		title: 'SQL',
+	},
+	{
+		logo: typescriptIcon,
+		title: 'Typescript',
+	},
+];
+// const techs = [
+// 	{
+// 		logo: flutterIcon,
+// 		title: 'Flutter',
+// 	},
+// 	{
+// 		logo: ionicIcon,
+// 		title: 'Ionic',
+// 	},
+// 	{
+// 		logo: railsIcon,
+// 		title: 'Ruby On Rails',
+// 	},
+// 	{
+// 		logo: railsIcon,
+// 		title: 'Ruby On Rails',
+// 	},
+// 	{
+// 		logo: nextIcon,
+// 		title: 'Next',
+// 	},
+// 	{
+// 		logo: nestIcon,
+// 		title: 'Nest',
+// 	},
+// ];
+---
+
+<div class="max-w-screen-xl mx-auto px-12 py-12 md:py-32">
+	<SectionHeading title="Skills" />
+	<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-6">
+		{
+			skills.map((skill) => (
+				<li class="flex items-center gap-3 rounded-md p-3 border border-border">
+					<div class="p-2 items-center justify-center rounded-lg border border-border">
+						<Image
+							src={skill.logo}
+							class="flex-shrink-0 h-5 w-5 text-text-primary"
+							format="svg"
+							alt={skill.title}
+							loading="lazy"
+						/>
+					</div>
+					<span class="text-smaller md:text-small text-text-primary">{skill.title}</span>
+				</li>
+			))
+		}
+	</ul>
+</div>

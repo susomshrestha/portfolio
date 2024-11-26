@@ -1,4 +1,6 @@
 ---
+import SectionHeading from './SectionHeading.astro';
+
 const experiences = [
 	{
 		logo: 'https://sonat.com/wp-content/uploads/2022/01/favicon-96x96-1.webp',
@@ -35,23 +37,21 @@ const experiences = [
 ];
 ---
 
-<div class="max-w-screen-xl mx-auto mt-10">
-	<div class="p-12">
-		<h2 class="text-2xl font-bold text-center tracking-tight text-text-primary mb-8">Experience</h2>
-		{
-			experiences.map((exp) => (
-				<div class="max-w-[80%] mx-auto pb-10 border-l border-border last:border-l-0">
-					<div class="relative flex flex-col justify-start pl-20">
-						<div class="absolute top-0 left-0 z-40 flex items-center justify-center -translate-x-1/2 bg-background border rounded-full w-14 h-14 border-border">
-							<img src={exp.logo} alt="" class="w-8 h-8" />
-						</div>
-						<p class="text-xs uppercase text-text-secondary">{exp.period}</p>
-						<h3 class="my-1 text-lg font-bold text-text-primary">{exp.title}</h3>
-						<p class="mb-1 text-sm font-medium text-text-primary">{exp.subTitle}</p>
-						<p class="text-sm font-light text-text-secondary">{exp.description}</p>
+<div class="max-w-screen-xl mx-auto px-12 py-12 md:py-32">
+	<SectionHeading title="Experience" />
+	{
+		experiences.map((exp) => (
+			<div class="max-w-[80%] mx-auto pb-10 border-l border-border last:border-l-0">
+				<div class="relative flex flex-col justify-start pl-20">
+					<div class="absolute top-0 left-0 z-40 flex items-center justify-center -translate-x-1/2 bg-background border rounded-full w-14 h-14 border-border">
+						<img src={exp.logo} alt="" class="w-8 h-8" />
 					</div>
+					<p class="text-xs uppercase text-text-secondary">{exp.period}</p>
+					<h3 class="my-1 text-lg font-bold text-text-primary">{exp.title}</h3>
+					<p class="mb-1 text-sm font-medium text-text-primary">{exp.subTitle}</p>
+					<p class="text-sm font-light text-text-secondary">{exp.description}</p>
 				</div>
-			))
-		}
-	</div>
+			</div>
+		))
+	}
 </div>
