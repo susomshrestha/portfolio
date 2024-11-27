@@ -94,7 +94,7 @@ const pathname = new URL(Astro.request.url).pathname;
 				<li>
 					<a
 						href="/blogs"
-						class={`block py-2 px-3 rounded md:p-0 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-text-primary after:transition-transform after:duration-300 after:ease-in-out ${pathname === '/blogs' ? 'text-text-primary after:scale-x-100' : 'text-text-secondary after:origin-bottom-right after:scale-x-0 hover:text-text-primary hover:after:origin-bottom-left hover:after:scale-x-100'}`}>
+						class={`block py-2 px-3 rounded md:p-0 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-text-primary after:transition-transform after:duration-300 after:ease-in-out ${pathname === '/blogs/' ? 'text-text-primary after:scale-x-100' : 'text-text-secondary after:origin-bottom-right after:scale-x-0 hover:text-text-primary hover:after:origin-bottom-left hover:after:scale-x-100'}`}>
 						Blog
 					</a>
 				</li>
