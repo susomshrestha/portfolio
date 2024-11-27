@@ -2,8 +2,6 @@
 import SectionHeading from './SectionHeading.astro';
 
 const messageTemplate = `Hi there, hope you're having a great day!`;
-const message = `Hi, SusomGPT 🤖 here!  It looks like your message got a bit scrambled! 🤔 
-    How about trying this: '${messageTemplate}' 😄`;
 ---
 
 <div class="max-w-screen-xl mx-auto px-12 py-12 md:py-32">
@@ -48,7 +46,8 @@ const message = `Hi, SusomGPT 🤖 here!  It looks like your message got a bit s
 			</div>
 			<button
 				type="submit"
-				class="py-3 px-5 mt-4 font-medium text-center text-text-on-accent rounded-lg bg-accent-primary hover:bg-accent-primary/70 sm:w-fit"
+				class="py-3 px-5 mt-4 font-medium text-center text-text-on-accent rounded-lg
+        bg-accent-primary hover:bg-accent-primary/70 sm:w-fit"
 				>Send message</button
 			>
 		</form>
@@ -59,9 +58,7 @@ const message = `Hi, SusomGPT 🤖 here!  It looks like your message got a bit s
 <dialog data-template-modal>
 	<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
 		<div class="bg-background p-6 rounded-lg max-w-lg w-full mx-4">
-			<div class="p-4 rounded mb-4 whitespace-pre-line">
-				{message}
-			</div>
+			<div class="p-4 rounded mb-4 whitespace-pre-line" data-message></div>
 			<div class="flex justify-end gap-4">
 				<button
 					data-close-modal
@@ -83,7 +80,7 @@ const message = `Hi, SusomGPT 🤖 here!  It looks like your message got a bit s
 		const templateModal = document.querySelector('[data-template-modal]');
 
 		document.querySelector('form').addEventListener('submit', submitForm);
-		// Your existing JavaScript code here
+
 		document.querySelector('[data-close-modal]').addEventListener('click', () => {
 			templateModal.close();
 		});
@@ -93,20 +90,34 @@ const message = `Hi, SusomGPT 🤖 here!  It looks like your message got a bit s
 			templateModal.close();
 		});
 
+		function showCustomDialog(message, showTemplate = false) {
+			const useTemplateBtn = templateModal.querySelector('[data-use-template]');
+			const messageBox = document.querySelector('[data-message]');
+
+			messageBox.textContent = message;
+			useTemplateBtn.style.display = showTemplate ? 'block' : 'none';
+
+			templateModal.showModal();
+		}
+
 		async function submitForm(event) {
-			event.preventDefault(); // Prevent default form submission
+			event.preventDefault();
 
-			// Validate message first
-			// if (!validateMessage(event)) {
-			// 	return;
-			// }
+			const message = document.getElementById('message').value;
 
-			// Collect form data
+			if (!isValidMessage(message)) {
+				showCustomDialog(
+					`Hi, SusomGPT 🤖 here! It looks like your message got a bit scrambled! 🤔
+            How about trying this: '${messageTemplate}' 😄`,
+					true
+				);
+				return;
+			}
+
 			const form = event.target;
 			const formData = new FormData(form);
 
 			try {
-				// Send to Formspree
 				const response = await fetch('https://formspree.io/f/xlekkqqk', {
 					method: 'POST',
 					body: formData,
@@ -116,36 +127,193 @@ const message = `Hi, SusomGPT 🤖 here!  It looks like your message got a bit s
 				});
 
 				if (response.ok) {
-					// Success handling
-					alert('Message sent successfully!');
-					form.reset(); // Clear form fields
+					showCustomDialog('Message sent successfully! 🎉');
+					form.reset();
 				} else {
-					// Error handling
 					const errorData = await response.json();
-					alert('There was an error sending your message. Please try again.');
+					showCustomDialog('There was an error sending your message. Please try again. 😕');
 					console.error('Formspree error:', errorData);
 				}
 			} catch (error) {
-				// Network or other errors
-				alert(
-					'There was a problem sending your message. Please check your connection and try again.'
+				window.showCustomDialog(
+					'There was a problem sending your message. Please check your connection and try again. 😔'
 				);
 				console.error('Submission error:', error);
 			}
 		}
 
-		// function validateMessage() {
-		// 	const messageField = document.getElementById('message');
-		// 	const message = messageField.value.trim();
+		function isValidMessage(message) {
+			const text = message.toLowerCase().trim();
+			if (text.length < 2) return false;
 
-		// 	// Check if message is good
+			// Enhanced invalid patterns to catch more random strings
+			const invalidPatterns =
+				/(.)\1{2,}|(?:qwer|asdf|zxcv|hjkl|blkj|jkl)|[!@#$%^&*]{2,}|[^a-z\s]{2,}/i;
+			if (invalidPatterns.test(text)) return false;
 
-		// 	if (isRandom) {
-		// 		templateModal.showModal();
-		// 		return false;
-		// 	}
+			// Stricter consonant sequence check
+			const consecutiveConsonants = /[bcdfghjklmnpqrstvwxz]{4,}/i;
+			if (consecutiveConsonants.test(text)) return false;
 
-		// 	return true;
-		// }
+			// Use Set for faster lookups
+			const commonWords = new Set([
+				'hi',
+				'hello',
+				'hey',
+				'the',
+				'is',
+				'are',
+				'was',
+				'how',
+				'who',
+				'why',
+				'you',
+				'i',
+				'we',
+				'my',
+				'of',
+				'and',
+				'a',
+				'to',
+				'in',
+				'is',
+				'you',
+				'it',
+				'he',
+				'for',
+				'was',
+				'on',
+				'are',
+				'as',
+				'his',
+				'at',
+				'be',
+				'the',
+				'of',
+				'and',
+				'a',
+				'to',
+				'in',
+				'is',
+				'you',
+				'that',
+				'it',
+				'he',
+				'for',
+				'was',
+				'on',
+				'are',
+				'as',
+				'with',
+				'his',
+				'they',
+				'at',
+				'be',
+				'this',
+				'from',
+				'I',
+				'have',
+				'or',
+				'by',
+				'one',
+				'had',
+				'not',
+				'but',
+				'what',
+				'all',
+				'were',
+				'when',
+				'we',
+				'there',
+				'can',
+				'an',
+				'your',
+				'which',
+				'their',
+				'said',
+				'if',
+				'do',
+				'will',
+				'each',
+				'about',
+				'how',
+				'up',
+				'out',
+				'them',
+				'then',
+				'she',
+				'many',
+				'some',
+				'so',
+				'these',
+				'would',
+				'other',
+				'into',
+				'has',
+				'more',
+				'her',
+				'two',
+				'like',
+				'him',
+				'see',
+				'time',
+				'could',
+				'no',
+				'make',
+				'than',
+				'first',
+
+				'been',
+				'its',
+				'who',
+				'now',
+				'people',
+				'my',
+				'made',
+				'over',
+				'did',
+				'down',
+				'only',
+				'way',
+				'find',
+				'use',
+				'may',
+				'water',
+				'long',
+				'little',
+				'very',
+				'after',
+				'words',
+				'called',
+				'just',
+				'where',
+				'most',
+				'know',
+				'greeting',
+				'greetings',
+				'howdy',
+				'hiya',
+				'morning',
+				'afternoon',
+				'evening',
+				'night',
+				'sup',
+				'yo',
+			]);
+
+			// Stricter character ratio checks
+			const counts = {
+				consonants: (text.match(/[bcdfghjklmnpqrstvwxz]/g) || []).length,
+				vowels: (text.match(/[aeiou]/g) || []).length,
+				nonAlpha: (text.match(/[^a-z\s]/g) || []).length,
+				alpha: (text.match(/[a-z]/g) || []).length,
+			};
+
+			if (counts.consonants > 0 && counts.vowels === 0) return false;
+			if (counts.consonants / (counts.vowels || 1) > 3) return false;
+
+			const words = text.split(/\s+/);
+			return words.some((word) => commonWords.has(word));
+		}
 	});
 </script>
